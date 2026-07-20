@@ -18,4 +18,18 @@ All experiments ran for 30 seconds (1,500 frames) with the 4-data/3-parity FEC t
 | B_moderate | 4 | 130 | 5 | 0.33% | 1.81x | VALID |
 | B_moderate | 5 | 130 | 5 | 0.33% | 1.81x | VALID |
 
-The selected grading delay is 130 ms. It is the lowest tested valid delay and remained below both mandatory caps across the Profile B seed sweep.
+
+## Causal parity transport (final)
+
+The block-FEC transport was replaced with a causal XOR parity stream, which sends parity with the protected frame and removes block-formation latency.
+
+| Profile | Seed | Delay (ms) | Misses | Miss rate | Overhead | Result |
+|---|---:|---:|---:|---:|---:|---|
+| A_mild | 1 | 80 | 0 | 0.00% | 1.997x | VALID |
+| B_moderate | 1 | 80 | 8 | 0.53% | 1.997x | VALID |
+| B_moderate | 2 | 80 | 11 | 0.73% | 1.997x | VALID |
+| B_moderate | 3 | 80 | 11 | 0.73% | 1.997x | VALID |
+| B_moderate | 4 | 80 | 3 | 0.20% | 1.997x | VALID |
+| B_moderate | 5 | 80 | 12 | 0.80% | 1.997x | VALID |
+
+The selected grading delay is 80 ms. It is the lowest practical delay for Profile B's measured 20–80 ms one-way jitter and remained below both mandatory caps across the seed sweep.
