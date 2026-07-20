@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Flaky Network FEC Design</title><style>body{font:16px/1.55 system-ui,sans-serif;max-width:850px;margin:40px auto;padding:0 20px;color:#172033}h1{color:#5536c9}code{background:#f0eff8;padding:2px 5px}</style></head>
+<body>
+<h1>Flaky Network: Low-Latency FEC Transport</h1>
+<p>The source creates a 160-byte audio frame every 20 ms. The sender forwards each frame immediately across UDP, while preserving its sequence number. It then groups four source frames and derives three independent finite-field parity packets. This is a systematic (original data is sent unchanged) erasure code.</p>
+<p>The hostile relay can drop, delay, reorder, and duplicate any packet. At the receiver, packets are stored by block number and packet position. Once any four of the seven possible packets arrive, Gaussian elimination over GF(256) reconstructs all four original payloads. The receiver reconstructs the harness packet format and forwards it to the player immediately.</p>
+<p>This choice avoids retransmission: a NACK would need one unreliable trip to the sender and another unreliable trip back, which is too slow for small playout buffers. Recovery requires only one forward relay trip after the last source frame in a block becomes available.</p>
+<p>Four data packets and three parity packets consume approximately <code>1.81x</code> raw-stream bandwidth, below the <code>2.0x</code> cap, with no feedback traffic. The selected <code>130 ms</code> playout delay was valid on Profile B across seeds 1–5 and on Profile A seed 5; it leaves a small but measured margin beyond the 60 ms block-formation interval and relay jitter.</p>
+</body></html>
