@@ -15,4 +15,4 @@ make clean && make
 python3 run.py --profile profiles/B.json --delay_ms 130 --seed 1
 ```
 
-The recommended grading delay is **80 ms**.
+The recommended grading delay is **90 ms**.

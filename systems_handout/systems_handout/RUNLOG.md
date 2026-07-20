@@ -32,4 +32,14 @@ The block-FEC transport was replaced with a causal XOR parity stream, which send
 | B_moderate | 4 | 80 | 3 | 0.20% | 1.997x | VALID |
 | B_moderate | 5 | 80 | 12 | 0.80% | 1.997x | VALID |
 
-The selected grading delay is 80 ms. It is the lowest practical delay for Profile B's measured 20–80 ms one-way jitter and remained below both mandatory caps across the seed sweep.
+## Safety validation at 90 ms
+
+| Profile | Seed | Delay (ms) | Misses | Miss rate | Overhead | Result |
+|---|---:|---:|---:|---:|---:|---|
+| B_moderate | 1 | 90 | 3 | 0.20% | 1.997x | VALID |
+| B_moderate | 2 | 90 | 1 | 0.07% | 1.997x | VALID |
+| B_moderate | 3 | 90 | 4 | 0.27% | 1.997x | VALID |
+| B_moderate | 4 | 90 | 1 | 0.07% | 1.997x | VALID |
+| B_moderate | 5 | 90 | 5 | 0.33% | 1.997x | VALID |
+
+The selected grading delay is 90 ms. It leaves 10 ms of scheduling margin above Profile B's measured 80 ms one-way jitter and remained below both mandatory caps across the seed sweep.
